@@ -6,9 +6,9 @@ COPY . .
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} application.jar
 RUN ls build/libs
-RUN jar tf application.jar
+RUN jar tf application.jar/LtdWorksApi-0.0.1-SNAPSHOT.jar
 
-RUN java -Djarmode=layertools -jar application.jar extract
+RUN java -Djarmode=layertools -jar application.jar/LtdWorksApi-0.0.1-SNAPSHOT.jar extract
 
 FROM openjdk:17
 WORKDIR /code
