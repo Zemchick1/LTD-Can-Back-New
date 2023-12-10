@@ -4,7 +4,7 @@ WORKDIR /code
 COPY . .
 
 ARG JAR_FILE=build/libs/*.jar
-COPY ${JAR_FILE} application.jar/LtdWorksApi-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} application.jar
 RUN ls build/libs
 RUN jar tf application.jar/LtdWorksApi-0.0.1-SNAPSHOT.jar
 

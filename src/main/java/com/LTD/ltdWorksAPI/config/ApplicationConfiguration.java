@@ -50,11 +50,7 @@ public class ApplicationConfiguration {
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("email-smtp.eu-central-1.amazonaws.com");
-        mailSender.setPort(587);
-
-        mailSender.setUsername("AKIA3MUKNLIZRGOQLNDP");
-        mailSender.setPassword("BNDA9BSVRUgRLqbJPmLbbk0shQfQk8kXwPr1Jt/8/5Zb\n");
+        // TODO: Mail sender credentials here
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.smtp.auth", "true");
