@@ -122,7 +122,7 @@ build/
 .settings
 .springBeans
 .sts4-cache
-bin/
+../../LTD-Can-Back/bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
@@ -146,3 +146,4 @@ out/
 .vscode/
 
 .DS_Store
+.env

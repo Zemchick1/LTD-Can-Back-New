@@ -8,4 +8,5 @@ import lombok.Data;
 public class BooksAdditionSearchDTO {
     private String searchText;
     private String category;
+
 }

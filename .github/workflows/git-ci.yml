@@ -73,6 +73,9 @@ jobs:
 
       - name: push Docker image to registry
         run: docker push ${{secrets.DOCKER_REPOSITORY}}:backend
+
+      - name: Build Docker compose
+        run: docker-compose -f compose.yaml build
           
   # sonarQube:
   #    needs: docker

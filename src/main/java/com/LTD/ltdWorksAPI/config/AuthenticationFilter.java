@@ -51,7 +51,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
                 String userEmail;
                 try {
-                        userEmail = jwtService.getEmail(jwt_token); // TODO How to clean Jwt in DB?
+                        userEmail = jwtService.getEmail(jwt_token);
                 }
                 catch (ExpiredJwtException ex) {
                         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

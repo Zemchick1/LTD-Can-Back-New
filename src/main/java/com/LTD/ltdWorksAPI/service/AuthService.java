@@ -46,7 +46,6 @@ public class AuthService {
     public AuthResponseDTO register(@NotNull RegisterDTO request) {
         if (userRepository.findByEmail(request.getEmail()).isPresent()
                 || userRepository.findByUsername(request.getUsername()).isPresent()) {
-//            TODO why don't allow same username?
             throw new BadRequestException("User with this email or username is already exists");
         }
         User user = User.builder()

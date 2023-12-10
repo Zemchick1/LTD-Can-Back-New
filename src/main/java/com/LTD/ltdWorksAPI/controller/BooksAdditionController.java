@@ -28,7 +28,7 @@ public class BooksAdditionController {
 
     @PostMapping("/search")
     public ResponseEntity<List<String>> search(@RequestBody @NonNull BooksAdditionSearchDTO booksAdditionSearchDTO) {
-        BooksAdditionSearchCategory.valueOf(booksAdditionSearchDTO.getCategory().toUpperCase()); // Validation
-        return ResponseEntity.ok(booksAdditionService.search(booksAdditionSearchDTO));
+        BooksAdditionSearchCategory.valueOf(booksAdditionSearchDTO.getCategory().toUpperCase()); // TODO Validation
+        return ResponseEntity.ok(booksAdditionService.search(booksAdditionSearchDTO)); // TODO using ELASTIC
     }
 }

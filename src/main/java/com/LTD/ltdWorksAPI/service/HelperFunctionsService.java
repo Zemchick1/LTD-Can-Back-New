@@ -1,7 +1,9 @@
 package com.LTD.ltdWorksAPI.service;
 
-import com.LTD.ltdWorksAPI.exception.BadRequestException;
-import com.LTD.ltdWorksAPI.model.entity.*;
+import com.LTD.ltdWorksAPI.model.entity.ConfirmationToken;
+import com.LTD.ltdWorksAPI.model.entity.ForgotPasswordToken;
+import com.LTD.ltdWorksAPI.model.entity.RefreshToken;
+import com.LTD.ltdWorksAPI.model.entity.User;
 import com.LTD.ltdWorksAPI.repository.JwtAccessTokenRepository;
 import com.LTD.ltdWorksAPI.repository.RefreshTokenRepository;
 import com.LTD.ltdWorksAPI.utils.enums.Roles;
@@ -11,21 +13,19 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -143,7 +143,7 @@ public class HelperFunctionsService {
                 """;
         MapSqlParameterSource parameters = new MapSqlParameterSource();
         parameters.addValue("user.id", user.getId());
-        namedParameterJdbcTemplate.update(sql, parameters); // TODO TESTS
+        namedParameterJdbcTemplate.update(sql, parameters);
     }
 
     public Roles getRole(){
